@@ -10,22 +10,43 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Reading List Table View Controller-->
         <scene sceneID="K4y-yN-8Q3">
             <objects>
-                <tableViewController id="6Z0-F7-O7j" sceneMemberID="viewController">
+                <tableViewController id="6Z0-F7-O7j" customClass="ReadingListTableViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4A8-il-g6T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Rqt-pE-3FD">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Rqt-pE-3FD" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rqt-pE-3FD" id="ExT-OV-NAX">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QE-oh-Yn4">
+                                            <rect key="frame" x="297" y="6" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="checkAction:" destination="Rqt-pE-3FD" eventType="touchUpInside" id="OVY-Sf-Wge"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGu-Mf-H9g">
+                                            <rect key="frame" x="73" y="11" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="bookTextLabel" destination="oGu-Mf-H9g" id="156-Ge-v1O"/>
+                                    <outlet property="checkOutlet" destination="1QE-oh-Yn4" id="ac3-tv-d3G"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -48,7 +69,7 @@
         <!--Add a New Book-->
         <scene sceneID="wFA-PA-bFd">
             <objects>
-                <viewController id="kIM-6o-SZF" sceneMemberID="viewController">
+                <viewController id="kIM-6o-SZF" customClass="BookViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gxF-x6-wof">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,8 +103,16 @@
                         <viewLayoutGuide key="safeArea" id="bug-Pi-KhO"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add a New Book" id="vkB-kg-2z0">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="qHC-N0-vmA"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="qHC-N0-vmA">
+                            <connections>
+                                <action selector="saveTapped:" destination="kIM-6o-SZF" id="FuM-ce-I2e"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addBookLabel" destination="021-aE-cOE" id="sdn-k0-QsQ"/>
+                        <outlet property="reasonToReadOutlet" destination="nAt-uX-jrS" id="mXC-p0-Hc6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cLS-ed-h3C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
