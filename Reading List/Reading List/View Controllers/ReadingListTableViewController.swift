@@ -10,8 +10,14 @@ class ReadingListTableViewController: UITableViewController {
     //        bookController.books[indexPath.row]
     //    }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
         // load persitant data
     }
     
@@ -22,7 +28,8 @@ class ReadingListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bookController.readBooks.count
+        return bookController.books.count
+        //return bookController.readBooks.count
     }
     
     //    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: 1) -> Int {
@@ -31,10 +38,10 @@ class ReadingListTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
         
-        // Configure the cell...
-        
+        let book = bookController.readBooks[indexPath.row]
+        cell.book = book
         return cell
     }
     

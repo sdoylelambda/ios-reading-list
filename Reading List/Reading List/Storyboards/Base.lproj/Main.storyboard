@@ -26,22 +26,31 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QE-oh-Yn4">
-                                            <rect key="frame" x="297" y="6" width="46" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button"/>
-                                            <connections>
-                                                <action selector="checkAction:" destination="Rqt-pE-3FD" eventType="touchUpInside" id="OVY-Sf-Wge"/>
-                                            </connections>
-                                        </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGu-Mf-H9g">
-                                            <rect key="frame" x="73" y="11" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xpv-6A-3eh">
+                                            <rect key="frame" x="8" y="0.0" width="367" height="43.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGu-Mf-H9g">
+                                                    <rect key="frame" x="0.0" y="0.0" width="268" height="43.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QE-oh-Yn4">
+                                                    <rect key="frame" x="276" y="0.0" width="91" height="43.5"/>
+                                                    <state key="normal" title="Button" image="unchecked"/>
+                                                    <connections>
+                                                        <action selector="checkAction:" destination="Rqt-pE-3FD" eventType="touchUpInside" id="OVY-Sf-Wge"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="xpv-6A-3eh" firstAttribute="top" secondItem="ExT-OV-NAX" secondAttribute="top" id="529-9g-5E2"/>
+                                        <constraint firstItem="xpv-6A-3eh" firstAttribute="leading" secondItem="ExT-OV-NAX" secondAttribute="leading" constant="8" id="LNK-J5-LWL"/>
+                                        <constraint firstAttribute="bottom" secondItem="xpv-6A-3eh" secondAttribute="bottom" id="O0R-Ka-G9m"/>
+                                        <constraint firstAttribute="trailing" secondItem="xpv-6A-3eh" secondAttribute="trailing" id="uLW-Wv-gIY"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="bookTextLabel" destination="oGu-Mf-H9g" id="156-Ge-v1O"/>
@@ -137,4 +146,7 @@
             <point key="canvasLocation" x="93.599999999999994" y="117.39130434782609"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="unchecked" width="37.5" height="37.5"/>
+    </resources>
 </document>
